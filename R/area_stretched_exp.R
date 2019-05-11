@@ -1,5 +1,5 @@
-# fit stretched exponential function to
-source('config.R')
+# fit stretched exponential function to areas of countries
+source('R/config.R')
 library(ggplot2)
 
 # load data
@@ -53,7 +53,7 @@ d$area.predicted.sexp = predict(fit, list(rank.area = d$rank.area))
 # add exponential fit to the plot
 ggplot(subset(d, area>1000), 
        aes(rank.area, area, label=cname)) +
-  geom_point(col='red', size=) + 
+  geom_point(col='red', size=1.5) + 
   geom_line(aes(y=area.predicted), col='blue') + 
   geom_line(aes(y=area.predicted.sexp), col='purple', size=2, alpha=0.3) + 
   geom_text(vjust=-0.5,hjust=0.1) + 
@@ -62,6 +62,6 @@ ggplot(subset(d, area>1000),
   scale_y_log10(label=scientific_10) + 
   theme_bw(base_size=14)
 
-ggsave(file.path(path.figures,'RankAreaStretchedExp.png'),
+ggsave(file.path(path.figures,'area_stretched_exp_fit.png'),
        dpi=220, width=5, height=4)
 # subset(d, area>80000 & area<90000)
