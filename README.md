@@ -10,4 +10,4 @@ The World Data is downloaded first from the web and saved into a file using `mak
 
 The following plot
 
-!(Ranked Area)[figs/area_stretched_exp_fit.png]
+![Ranked Area](figs/area_stretched_exp_fit.png)
